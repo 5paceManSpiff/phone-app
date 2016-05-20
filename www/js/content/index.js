@@ -1,4 +1,4 @@
-angular.module('breezio.content', ['breezio.content.posts', 'breezio.content.users', 'breezio.content.notes'])
+angular.module('breezio.content', ['breezio.content.posts', 'breezio.content.article', 'breezio.content.video', 'breezio.content.users', 'breezio.content.notes'])
 
 .controller('ContentCtrl', function($scope, $rootScope, $state, $timeout, Posts, Config) {
   $scope.loading = true;
@@ -7,12 +7,21 @@ angular.module('breezio.content', ['breezio.content.posts', 'breezio.content.use
   $scope.posts = [];
   $scope.portal = Config.portal;
 
+  $scope.postTypeIcons = {
+    URL: 'ion-link',
+    VIDEO: 'ion-ios-videocam',
+    ARTICLE: 'ion-document-text'
+  };
 
   $scope.refreshPosts = function() {
     $scope.start = 0;
     $scope.posts = [];
     $scope.loading = true;
     Posts.get().then(function(res) {
+      angular.forEach(res.data.items, function(post) {
+        console.log(post.postType);
+      });
+
       $scope.loading = false;
       $scope.posts = res.data.items;
       $scope.exhausted = false;
@@ -43,7 +52,14 @@ angular.module('breezio.content', ['breezio.content.posts', 'breezio.content.use
   };
 
   $scope.openPost = function(post) {
-    $state.go('tab.content-post', {postId: post.id});
+    switch(post.postType) {
+      case 'VIDEO':
+        $state.go('tab.content-video', {postId: post.id});
+        break;
+      default:
+        $state.go('tab.content-article', {postId: post.id});
+        break;
+    }
   };
 
   $scope.$on('$ionicView.loaded', function() {

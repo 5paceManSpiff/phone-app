@@ -224,6 +224,11 @@ div.spinner {
   margin-right: 16px;
 }
 
+.post-item .post-type {
+  margin-left: 20px;
+  font-size: 1.5em;
+}
+
 .experts ion-header-bar {
   height: 43px !important;
 }

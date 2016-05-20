@@ -216,12 +216,21 @@ angular.module('breezio', ['ionic', 'ngStorage', 'breezio.content', 'breezio.cha
       }
     }
   })
-  .state('tab.content-post', {
-    url: '/post/:postId',
+  .state('tab.content-article', {
+    url: '/article/:postId',
     views: {
       'tab-content': {
-        templateUrl: 'templates/content-post.html',
-        controller: 'PostCtrl'
+        templateUrl: 'templates/content-article.html',
+        controller: 'ArticleCtrl'
+      }
+    }
+  })
+  .state('tab.content-video', {
+    url: '/video/:postId',
+    views: {
+      'tab-content': {
+        templateUrl: 'templates/content-video.html',
+        controller: 'VideoCtrl'
       }
     }
   })

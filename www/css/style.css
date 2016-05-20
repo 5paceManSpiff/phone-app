@@ -331,3 +331,7 @@ ion-footer-bar.change-portal {
 ion-footer-bar.change-portal .title a {
   color: #387EF5;
 }
+
+.video-content {
+  width: 100%;
+}

@@ -18,10 +18,6 @@ angular.module('breezio.content', ['breezio.content.posts', 'breezio.content.art
     $scope.posts = [];
     $scope.loading = true;
     Posts.get().then(function(res) {
-      angular.forEach(res.data.items, function(post) {
-        console.log(post.postType);
-      });
-
       $scope.loading = false;
       $scope.posts = res.data.items;
       $scope.exhausted = false;

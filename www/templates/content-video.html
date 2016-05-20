@@ -9,28 +9,20 @@
     </div>
   </ion-nav-title>
   <ion-nav-buttons side="right">
-    <button logged-in class="button" ng-show="(post.experts.length > 0)" ng-click="toggleExperts()">
-      <i class="icon ion-person-stalker"></i>
-    </button>
     <button class="button" ng-click="toggleNotes()">
       <i class="icon ion-edit"></i>
     </button>
   </ion-nav-buttons>
 
-  <ion-header-bar align-title="center" class="bar bar-subheader bar-assertive ng-hide">
-    <h1 class="title">Select a blurb to comment</h1>
-  </ion-header-bar>
-
   <ion-content>
     <div ng-show="loaded" class="list">
 
-      <!-- header -->
+      <breezio-video provider="{{post.source.provider}}" url="{{post.source.url}}"></breezio-video>
+
       <div class="post-header item" ng-click="openGeneralNotes()">
         <h2 ng-class="{'alone': !subtitleExists()}">{{post.title}}</h2>
         <p ng-show="subtitleExists()">{{post.subtitle}}</p>
       </div>
-
-      <breezio-post ng-click="openNotes($event)"></breezio-post>
 
     </div>
   </ion-content>

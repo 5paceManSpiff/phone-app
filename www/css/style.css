@@ -155,10 +155,6 @@ ion-content {
   display: none;
 }
 
-.blurb.note-mode:active {
-  background-color: #ECECEC;
-}
-
 .timestamp {
   text-align: center;
   color: grey;

@@ -334,3 +334,55 @@ ion-footer-bar.change-portal .title a {
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
   margin-top: 10px !important;
 }
+
+.note {
+  display: flex;
+  padding: 5px;
+}
+
+.note img {
+  margin-right: 10px;
+  position: relative;
+}
+
+.note-content {
+  position: relative;
+  padding: 5px 15px;
+  border: 1px solid #CDCDCD;
+  border-radius: 5px;
+}
+
+.note-content:before {
+  content: "";
+  left: -7px;
+  top: 10px;
+  position: absolute;
+  border-right: 7px solid #CDCDCD;
+  border-top-color: inherit;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.note-content:after {
+  content: "";
+  left: -5px;
+  top: 12px;
+  position: absolute;
+  border-right: 5px solid #FFF;
+  border-top-color: inherit;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.note-content p:first-child {
+  color: #666;
+  font-size: 12px;
+}
+
+.note-content p:last-child {
+  margin-bottom: 5px;
+}
+
+.note-content p {
+  margin: 0px;
+}

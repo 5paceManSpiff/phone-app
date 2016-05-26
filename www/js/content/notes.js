@@ -88,12 +88,6 @@ angular.module('breezio.content.notes', [])
     $ionicScrollDelegate.scrollBottom(true);
   };
 
-  $scope.formatLine = function(items, index) {
-    var line = items[index];
-
-    return '<strong>' + line.user.username + '</strong> ' + line.content;
-  };
-
   $scope.send = function() {
     if ($scope.notesLoaded && !$scope.posting && $scope.text != '') {
       $scope.posting = true;
@@ -142,6 +136,14 @@ angular.module('breezio.content.notes', [])
         });
       }
     });
+  };
+
+  $scope.subtitleExists = function() {
+    if ($scope.post && $scope.post.subtitle && $scope.post.subtitle.length > 0) {
+      return true;
+    }
+
+    return false;
   };
 
   $scope.$on('$ionicView.beforeEnter', function() {

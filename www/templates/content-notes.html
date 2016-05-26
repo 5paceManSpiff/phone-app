@@ -1,18 +1,29 @@
 <ion-view>
   <ion-nav-title>
-    <div class="nav-user">
-      <img ng-show="postLoaded" class="small" ng-src="{{post.imagePath | static}}">
+    <div class="nav-user" ng-click="openUser(post.user)">
+      <img ng-show="postLoaded" class="small" ng-src="{{post.user.imagePath | static}}">
       <div ng-show="postLoaded">
-        <h1>{{post.title}}</h1>
-        <h2>{{post.subtitle}}</h2>
+        <h1>{{post.user.firstName}} {{post.user.lastName}}</h1>
+        <h2>{{post.user.username}} <strong>&#183</strong> {{post.dateString}}</h2>
       </div>
     </div>
   </ion-nav-title>
 
   <ion-content>
 
-    <div class="padding">
-      <p ng-repeat="line in items track by $index" ng-bind-html="formatLine(items, $index)"></p>
+    <div class="post-header item">
+      <h2 ng-class="{'alone': !subtitleExists()}">{{post.title}}</h2>
+      <p ng-show="subtitleExists()">{{post.subtitle}}</p>
+    </div>
+
+    <div class="padding notes">
+      <div ng-repeat="line in items track by $index" class="note">
+        <img class="small" ng-src="{{line.user.imagePath | static}}">
+        <div class="note-content">
+          <p>{{line.user.username}}</p>
+          <p ng-bind-html="line.content"></p>
+        </div>
+      </div>
     </div>
 
   </ion-content>
